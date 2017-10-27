@@ -3,11 +3,48 @@
     src: url(../fonts/emulogic.ttf);
 }
 
+*
+{
+  font-family: emulogic;
+  padding: 0px;
+  margin: 0px;
+}
+
+#world
+{
+  margin: 0px auto;
+  width: 330px;
+  height: auto;
+  padding: 15px;
+  border: black;
+
+	background: linear-gradient(#588063, #000);
+
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+	border-radius: 10px;
+}
+
+h1
+{
+  text-align: center;
+  font-size: 24px;
+  color: #FFBF00;
+  padding-bottom: 20px;
+
+  text-shadow: 3px 3px lime;
+  text-stroke: 1px #000;
+}
+
 #stage
 {
+  margin: 0px auto;
   width: 300px;
   height: 300px;
 	position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  border: 1px solid lime;
 }
 
 #background
@@ -51,7 +88,7 @@
   left:145px;
   position: absolute;
   background-image: url(../images/missile.png);
-  transition: all 0.5s ease-out 0s;
+  /*transition: all 0.5s ease-out 0s;*/
 }
 
 #explosion
@@ -71,4 +108,48 @@
   /*font-family: Arial, Helvetica, sans-serif;*/
   font-family: emulogic;
   font-size: 7px;
+}
+
+input
+{
+  font-size: 15px;
+  background-color: black;
+  color: #FFBF00;
+  width: 75px;
+  padding: 5px 10px;
+  border: 1px solid lime;
+	border-radius: 10px;
+}
+
+button
+{
+  font-size: 15px;
+  color: #FFBF00;
+  padding: 5px 10px;
+  border: 2px solid lime;
+
+  border-radius: 10px;
+  background: black;
+
+  user-select: none;
+}
+
+button:hover
+{
+  background-color: #FFBF00;
+  color: #000;
+}
+
+button:active
+{
+  background-color: #9e7606;
+  color: #000;
+}
+
+p
+{
+  text-align: center;
+  font-size: 12px;
+  padding-bottom: 20px;
+  color: #FFBF00;
 }

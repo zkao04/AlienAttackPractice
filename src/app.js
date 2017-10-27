@@ -22,18 +22,28 @@ var gameWon = false;
 console.log(alienPositionX);
 console.log(alienPositionY);
 
-//missile launch button
-var button = document.querySelector("button");
-button.addEventListener("click", clickHandler, false);
+//missile launch fire
+var fire = document.querySelector("#fire");
+fire.addEventListener("click", clickHandler, false);
 function clickHandler(){
   validateInput();
 }
 
+// var reload = document.querySelector("#reload");
+// reload.addEventListener("click", reload, false);
+// function reload(){
+//   missile.style.top = 260 + "px";
+//   missile.style.left = 145 + "px";
+// }
+
 function validateInput(){
   coordinateX = parseInt(inputX.value);
   coordinateY = parseInt(inputY.value);
-  if (isNaN(coordinateX && coordinateY)){
-      output.innerHTML = "You must enter number for coordinates, Captain";
+  if (isNaN(coordinateX || coordinateY)){
+    output.innerHTML = "You must enter number for coordinates, Captain";
+  }
+  else if (coordinateX > 300 || coordinateY > 300 ) {
+    output.innerHTML = "Your coordinates are out of range, Captain";
   }
   else {
     attack();
@@ -66,14 +76,6 @@ function attack(){
   }
 }
 
-function alienMoves(){
-  alienPositionX = Math.floor(Math.random()*280);
-  alienPositionY += 30;
-  //rendering alien
-  alien.style.top = alienPositionY + "px";
-  alien.style.left = alienPositionX + "px";
-};
-
 function endGame(){
   if (gameWon){
     exploded();
@@ -85,22 +87,29 @@ function endGame(){
 //Disabling Input-Field
   inputX.disabled = true;
   inputY.disabled = true;
-//Disabling Button
-  button.removeEventListener("click", clickHandler, false);
-  button.disabled = true;
+//Disabling fire
+  fire.removeEventListener("click", clickHandler, false);
+  fire.disabled = true;
 //Disabling Enter-Key
   // window.removeEventListener("keydown", keyHandler, false);
 }
-
-
 
 function launched(){
   missile.style.top = coordinateY + "px";
   missile.style.left = coordinateX + "px";
 }
 
+function alienMoves(){
+  alienPositionX = Math.floor(Math.random()*280);
+  alienPositionY += 30;
+  //rendering alien
+  alien.style.top = alienPositionY + "px";
+  alien.style.left = alienPositionX + "px";
+};
+
 function exploded(){
   explosion.style.top = coordinateY + "px";
   explosion.style.left = coordinateX + "px";
   explosion.style.display = "block";
+  alien.style.display = "none";
 }
